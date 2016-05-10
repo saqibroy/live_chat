@@ -1,0 +1,962 @@
+<div class="row color" style="margin-top:-70px;">
+
+    <div class="col-md-1 pic pull-right">
+        <img src="images/logo.png"></div>
+    <div class="col-md-10 head-pic">
+        <!-- <img src="header.jpg"> -->
+    </div>
+        </div>
+    <div class="row color">
+      
+        <div class="col-lg-6 pull-right new-header">
+            <ul class="list-inline pull-right head-menu">
+            <% if current_user.present? %>
+            <li><%= link_to "Logout",destroy_user_session_path, method: :delete %></li>
+            <% else %>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal"><b>Login</b></a></li>
+                <li><a href="#"data-toggle="modal" data-target="#login-modal1"  ><b>Create a free account</b></a></li>
+                <% end %>
+            </ul>
+        <!-- <li><div class="col-md-3"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+       <li> <a href="#" data-toggle="modal" data-target="#login-modal">Create abc</a></li> -->
+    </div>
+    </div>
+    <!-- </div> -->
+    <!-- start signup modal -->
+    <div class="modal fade" id="login-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Sign up</h1><br>
+                  <form>
+                    <input type="text" name="firstname" placeholder="First Name">
+                    <input type="text" name="lastname" placeholder="Last Name">
+                    <input type="text" name="email" placeholder="Email">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="password" name="pass" placeholder="Confirm Password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Sign Up">
+                  </form>
+                    
+                </div>
+            </div>
+          </div>
+
+    <!-- end signup modal --> 
+    
+
+    <!-- Modal-start -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Login to Your Account</h1><br>
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+                    <%= f.password_field :password, autocomplete: "off",placeholder: "Password" %>
+                    <div class="login-help">
+                    <%= link_to "Register", new_registration_path(resource_name) %> - <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+                  </div>
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                  <% end %>
+
+                    
+                  
+                  
+                  <a href="<%= user_omniauth_authorize_path(:google_oauth2) %>" class="btn btn-lg btn-block omb_btn-google">
+                    <i class="fa fa-google-plus visible-xs"></i>
+                    <span class="hidden-xs google-text">Google+</span>
+                </a>
+                </div>
+            </div>
+          </div>
+
+    <!-- modal-end -->
+    <!-- setting-modal -->
+    <!-- Modal -->
+<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <i class="fa fa-wrench" aria-hidden="true"></i>Settings
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                
+                <form class="form-horizontal" role="form">
+
+                  <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                      <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/> Facebook Friends
+
+                        </label>
+
+                      </div>
+                    </div>
+                    <div class="col-md-offset-2 col-md-4">
+                      <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/> Bookmarked
+
+                        </label>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                      <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/> Most Popular
+
+                        </label>
+
+                      </div>
+                    </div>
+                    <div class="col-md-offset-2 col-md-4">
+                      <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/> Recently Visted
+
+                        </label>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                  
+                </form>
+                
+                
+                
+                
+                
+                
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                            Close
+                </button>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+
+
+
+
+
+<!-- end setting-modal -->
+
+<!-- Profile modal -->
+    <div class="modal fade" id="myModalHorizontal1" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Profile
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <!-- <div class="modal-body"> -->
+                
+                <form class="form-horizontal" role="form">
+                  <div class="row">
+                    <div class="col-md-12">
+                  <div class="col-md-offset-4 col-md-4  thumb prof"><br>
+            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="This is my title" data-caption="Some lovely red flowers" data-image="images/new.jpg" data-target="#image-gallery">
+                <img class="img-responsive" src="images/new.jpg" alt="Short alt text">
+            </a>
+            
+        </div>
+        <div class="col-md-3 chat-options"><br>
+            <a href="">Chat Room</a> <br>
+            <a href="">Private Video</a><br>
+            <a href="">Add Friend</a> <br>
+            <a href="">Bookmark Model</a>
+            </div>
+        </div>
+    </div>
+                  
+                  
+                    <div class="col-md-offset-4 col-md-4 name ">
+                      Name
+                    </div>
+                    <div class=" col-md-12">
+                    <div class="col-md-offset-4 col-md-3 ">
+                    Location: <br>
+                    Category: <br>
+                    Topic: <br>
+                    Social Media Sites: <br>
+                    Tags: <br>
+                    Rating: <br>
+                    </div>
+
+                    <div class=" col-md-3 ">
+                    Gujranwala <br>
+                    Pta nii <br>
+                    woh kya <br>
+                    Social <br>
+                    Tags <br>
+                    Rating <br>
+                    </div>
+                    
+                    
+                    
+                  </div>
+
+                  
+                     
+
+                  
+                </form>
+                
+                
+                
+                
+                
+                
+            <!-- </div> -->
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                            Close
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end profile-modal -->
+
+    <!-- Page Content -->
+    
+
+        <div class="row new-container">
+
+            <div class="row "> 
+            <div class="pull-right new-list"> <a href=""> Models Online</a>  <a href="" data-toggle="modal" data-target="#myModalHorizontal"><i class="fa fa-wrench" aria-hidden="true"></i>Settings</a>  <a href=""> Showing 1-38</a> <input type="text" placeholder="Search">  <a href=""> New Models</a>  <a href=""> Previews</a>
+                <a href=""> Pause</a> <a href=""><i class="fa fa-refresh" aria-hidden="true"></i></a></div>    
+
+            </div>
+            <div class="new-box">
+
+            
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+
+
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+
+            <div class="col-md-1   thumb">
+                <a class="" href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            <div class="col-md-1     thumb">
+                <a class=" " href="#">
+                    <img class="img-responsive" src="images/new.jpg" alt="">
+                </a>
+                <a href="">Name</a><br>
+                 <small><a href="" data-toggle="modal" data-target="#myModalHorizontal1"><b> Profile</b></a>&nbsp; <a href="">Pop-up</a></small>
+            </div>
+            </div>
+        </div>

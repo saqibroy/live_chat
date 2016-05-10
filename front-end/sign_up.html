@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SignUp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="shortcut icon" href="favicon.ico">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/prettyPhoto.css">
+<link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.4.custom.min.css">
+<link rel="stylesheet" href="rs-plugin/css/settings.css">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/colors/turquoise.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700">
+<link rel="stylesheet" href="css/login.css">
+
+<!-- Javascripts --> 
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript" src="js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="js/bootstrap-hover-dropdown.min.js"></script> 
+<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
+<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.nicescroll.js"></script>  
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script> 
+<script type="text/javascript" src="js/jquery.jigowatt.js"></script> 
+<script type="text/javascript" src="js/jquery.sticky.js"></script> 
+<script type="text/javascript" src="js/waypoints.min.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script> 
+<script type="text/javascript" src="js/jquery.gmap.min.js"></script> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script> 
+<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script> 
+<script type="text/javascript" src="js/custom.js"></script> 
+<script type="text/javascript" src="js/login.js"></script> 
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body>
+
+<header>
+  <!-- Navigation -->
+  <div class="navbar yamm navbar-default" id="sticky">
+    <div class="container">
+      <div class="navbar-header">
+      <a href="index.html" class="navbar-brand">         
+        <!-- Logo -->
+        <div id="logo"> 
+         Student Portal
+        </div>
+        </a> 
+        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+      <div id="navbar-collapse-grid" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#">Online Assitance</a>
+            </li>
+            <li class="dropdown">
+                <a href="feedback.html">feedback</a>
+            </li>
+             <li class="dropdown">
+                <a href="schedule.html">Lab hours</a>
+            </li>
+             <li class="dropdown">
+                <a href="request.html">Request</a>
+            </li>
+          <li class="dropdown"> <a href="#" data-toggle="dropdown" class="dropdown-toggle js-activated"><i class="fa fa-user"></i> My Account<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="login_signup.html"><i class="fa fa-user"></i> &nbsp;Student LogIn</a></li>
+              <li><a href="#"><i class="fa fa-user"></i> &nbsp;Admin login</a></li>
+            </ul>
+          </li>
+        </ul>
+          
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- Parallax Effect --> 
+<script type="text/javascript">$(document).ready(function(){$('#parallax-pagetitle').parallax("50%", -0.55);});</script>
+<section class="parallax-effect">
+  <div id="parallax-pagetitle" style="background-image: url(./images/parallax/parallex1.jpg);">
+    <div class="color-overlay"> 
+      <!-- Page title -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <ol class="breadcrumb">
+              <li><a href="login_signup.html">Login</a></li>
+              <li class="active">SignUp</li>
+            </ol>
+            <h1>SignUp</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Elements --> 
+
+<!-- Buttons -->
+<section class="buttons">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6  mt50">
+        <h3 class="lined-heading"><span>SignUp</span></h3>
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="images/user.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text"  id="inputEmail" class="form-control" placeholder="Name" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus>
+                <div class="g-recaptcha" data-sitekey="6Leh8BsTAAAAAL-fU0OS5Si8_5LONGWoVP2Bh56E"></div>
+                <button class="btn btn-lg btn-primary btn-block " type="submit">Sign Up</button>
+            </form><!-- /form -->
+            <p>Already have account?<a href="login_signup.html" class="forgot-password">
+                Login
+            </a> </p>
+        </div><!-- /card-container -->
+    </div>
+    <div class="col-md-6 mt50">
+        <h3 class="lined-heading"><span>Why choose AHA­Rooms ?</span></h3>
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="images/whychoose.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <h3>Guaranteed Features in all AHA­Rooms:</h3><br>
+            <p><i class="fa fa-globe fa-lg"></i>&nbsp;Unlimited Wi­Fi</p>
+            <p><i class="fa fa-globe fa-lg"></i>&nbsp;Comfortable Beds</p>
+            <p><i class="fa fa-globe fa-lg"></i>&nbsp;Clean wash rooms</p>
+            <p><i class="fa fa-globe fa-lg"></i>&nbsp;Complimentary Breakfast</p>
+            <p><i class="fa fa-globe fa-lg"></i>&nbsp;SAT TV</p>
+            <p>And many more....</p>
+            <p>Stay Smart!</p>
+        </div><!-- /card-container -->
+    </div>
+    
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+      <!-- Logo -->
+        <div id="logo"> 
+        <img  src="images/Logo1.jpg" alt="Starhotel" style="height:70px;"> 
+        </div>
+        <div class=" contact-detailsrow">
+          <div class="col-xs-3">
+            <div class="box-icon footer"> <a href="#">
+              <div class="circle1 "><i class="fa fa-facebook fa-lg"></i></div>
+              </a> </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="box-icon footer"> <a href="https://twitter.com/aha_rooms">
+              <div class="circle1"><i class="fa fa-twitter fa-lg"></i></div>
+              </a> </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="box-icon footer"> <a href="#">
+              <div class="circle1"><i class="fa fa-google fa-lg"></i></div>
+              </a> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-12">
+        <a class="footer2" href="index.html"><li>Home</li></a>
+        <a class="footer2" href="about-us.html"><li>About Us</li></a>
+        <a class="footer2" href="contact-01.html"><li>Contact Us</li></a>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-12 ">
+        <a class="footer2" href="#"><li>Privacy Policy</li></a>
+        <a class="footer2" href="#"><li>Guest Policy</li></a>
+       <a  class="footer2" href="terms.html"> <li>Term & Conditions</li></a>
+      </div>
+      <div class="col-md-2 col-sm-3 col-sm-12">
+        <a class="footer2" href="https://nameless-woodland-68138.herokuapp.com/admin"><li>Add your hotel</li></a>
+        <a class="footer2" href="#"><li>Travel agent</li></a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6"> &copy; 2016 AHA-rooms All Rights Reserved </div>
+        <div class="col-xs-6 text-right">
+          <ul>
+            <li>Developed By:<a href="http://octasolutions.pk/">OctaSolutions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
